@@ -79,19 +79,19 @@ local function in_file_browser()
   if nerd_tree_just_opened() then
     return true
   end
-  
-  local patterns = {"NERD_tree", "vimpanel"}
+
+  local patterns = {"NERD_tree", "vimpanel", "Neotest"}
   for _, pattern in ipairs(config.bufname_additional_patterns) do
     table.insert(patterns, pattern)
   end
-  
+
   local bufname = vim.fn.bufname('%')
   for _, pattern in ipairs(patterns) do
     if string.match(bufname, pattern) then
       return true
     end
   end
-  
+
   return false
 end
 
