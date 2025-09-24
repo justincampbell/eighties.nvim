@@ -20,7 +20,9 @@ A Lua port of [vim-eighties](https://github.com/justincampbell/vim-eighties) for
 {
   'justincampbell/eighties.nvim',
   config = function()
-    require('eighties').setup()
+    require('eighties').setup({
+      -- optional settings (see below)
+    })
   end
 }
 ```
@@ -31,7 +33,9 @@ A Lua port of [vim-eighties](https://github.com/justincampbell/vim-eighties) for
 use {
   'justincampbell/eighties.nvim',
   config = function()
-    require('eighties').setup()
+    require('eighties').setup({
+      -- optional settings (see below)
+    })
   end
 }
 ```
@@ -40,16 +44,16 @@ use {
 
 ```lua
 require('eighties').setup({
-  enabled = true,
-  minimum_width = 80,
+  enabled = true, -- Enable automatic resizing
+  minimum_width = 80, -- Minimum width of the active window
   extra_width = 0, -- Increase this if you want some extra room
   compute = true, -- Disable this if you just want the minimum + extra
-  bufname_additional_patterns = {'fugitiveblame'} -- Additional buffer patterns to ignore
+  bufname_additional_patterns = {} -- Additional buffer patterns to ignore (e.g. {'fugitiveblame'})
 })
 ```
 
 ## Commands
 
 * `:EightiesDisable` - Disable automatic resizing
-* `:EightiesEnable` - Enable automatic resizing  
+* `:EightiesEnable` - Enable automatic resizing
 * `:EightiesResize` - Manually trigger a resize
