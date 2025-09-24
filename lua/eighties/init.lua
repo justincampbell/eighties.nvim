@@ -95,10 +95,10 @@ local function in_file_browser()
   return false
 end
 
-function M.resize()
-  if config.enabled and not in_file_browser() then
+function M.resize(force)
+  if (config.enabled or force == true) and not in_file_browser() then
     local size = new_width()
-    
+
     if size > current_width() then
       vim.cmd('silent vertical resize ' .. size)
     end
@@ -121,7 +121,7 @@ function M.setup(opts)
   
   vim.api.nvim_create_user_command('EightiesDisable', function() M.enable(false) end, {})
   vim.api.nvim_create_user_command('EightiesEnable', function() M.enable(true) end, {})
-  vim.api.nvim_create_user_command('EightiesResize', M.resize, {})
+  vim.api.nvim_create_user_command('EightiesResize', function() M.resize(true) end, {})
 end
 
 return M
