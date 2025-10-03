@@ -51,5 +51,5 @@ require('eighties').setup({
 ## Commands
 
 * `:EightiesDisable` - Disable automatic resizing
-* `:EightiesEnable` - Enable automatic resizing  
+* `:EightiesEnable` - Enable automatic resizing
 * `:EightiesResize` - Manually trigger a resize
